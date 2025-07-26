@@ -81,7 +81,8 @@ function gameLoop() {
 
   // Gravity
   velocityY -= 0.5;
-  let posY = parseFloat(player.style.bottom) + velocityY;
+  let posY = parseFloat(player.style.bottom) || 80;
+  posY += velocityY;
 
   if (posY <= 80) {
     posY = 80;
@@ -92,20 +93,16 @@ function gameLoop() {
   player.style.left = posX + 'px';
   player.style.bottom = posY + 'px';
 
-  // Scroll camera
   game.scrollLeft = posX - 200;
 
-  // Collision with text objects
   infoBox.style.display = 'none';
   objects.forEach(obj => {
     const objRect = obj.getBoundingClientRect();
     const playerRect = player.getBoundingClientRect();
-
     const overlap = !(objRect.right < playerRect.left ||
                       objRect.left > playerRect.right ||
                       objRect.bottom < playerRect.top ||
                       objRect.top > playerRect.bottom);
-
     if (overlap) {
       infoBox.style.display = 'block';
       infoBox.textContent = obj.dataset.info;
@@ -116,6 +113,7 @@ function gameLoop() {
   checkCoins();
   requestAnimationFrame(gameLoop);
 }
+
 
 gameLoop();
 
