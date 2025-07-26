@@ -3,15 +3,25 @@ body {
   overflow: hidden;
   background: #111;
   font-family: 'Courier New', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 
 #game {
   position: relative;
-  width: 2000px;
-  height: 100vh;
+  width: 960px;
+  height: 540px;
   background: linear-gradient(#333, #111);
-  overflow-x: scroll;
+  overflow: hidden;
+  border: 4px solid #666;
+  image-rendering: pixelated;
 }
+
+
+
 
 #player {
   position: absolute;
@@ -53,15 +63,19 @@ body {
 
 #infoBox {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(0,0,0,0.8);
   color: white;
   padding: 10px 20px;
   border: 1px solid #aaa;
   display: none;
   z-index: 10;
+  font-size: 14px;
+  text-align: center;
 }
+
 
 /* Puzzle */
 .puzzle-trigger {
