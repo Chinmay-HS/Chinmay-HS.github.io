@@ -2,20 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> CHS Portfolio</title>
+  <title>Gamified Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="game">
-    <div id="player"></div>
+    <img id="player" src="sprites/hero_idle.png" alt="player">
+
     <div class="ground"></div>
 
-    <!-- Portfolio Sections as signs or objects -->
-    <div class="object" style="left: 400px;" data-info="Hi, I'm Chinmay! A game developer, editor and aviation enthusiast.">👤 About</div>
-    <div class="object" style="left: 800px;" data-info="Check out my work here.">💼 Projects</div>
-    <div class="object" style="left: 1200px;" data-info="Let's connect on LinkedIn!">📫 Contact</div>
+    <!-- Portfolio Signs -->
+    <div class="object" style="left: 400px;" data-info="Hi, I'm Chinmay! A Unity + Web dev.">👤 About</div>
+    <div class="object" style="left: 800px;" data-info="Check out my projects" onclick="openModal('Project 1: Unity AR App')">💼 Projects</div>
+    <div class="object" style="left: 1200px;" data-info="Let’s connect on LinkedIn!" onclick="openModal('Contact me: chinmay@example.com')">📫 Contact</div>
+
+    <!-- Puzzle Elements -->
+    <div class="puzzle-trigger" style="left: 600px;"></div>
+    <div class="gate" id="gate" style="left: 700px;"></div>
+
+    <!-- Collectible -->
+    <div class="coin" style="left: 550px;"></div>
 
     <div id="infoBox"></div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <p id="modalText"></p>
+    </div>
   </div>
 
   <script src="game.js"></script>

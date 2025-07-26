@@ -7,18 +7,19 @@ body {
 
 #game {
   position: relative;
-  width: 100vw;
+  width: 2000px;
   height: 100vh;
   background: linear-gradient(#333, #111);
+  overflow-x: scroll;
 }
 
 #player {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  background: limegreen;
-  left: 100px;
+  width: 48px;
+  height: 48px;
   bottom: 80px;
+  left: 100px;
+  image-rendering: pixelated;
   z-index: 2;
 }
 
@@ -59,4 +60,66 @@ body {
   border: 1px solid #aaa;
   display: none;
   z-index: 10;
+}
+
+/* Puzzle */
+.puzzle-trigger {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 80px;
+  background: gold;
+  border: 2px solid orange;
+}
+
+.gate {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  bottom: 80px;
+  background: brown;
+}
+
+/* Coin */
+.coin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('sprites/coin.png') no-repeat center;
+  background-size: contain;
+  bottom: 120px;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* Modal */
+#modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: 100;
+}
+
+.modal-content {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background: #222;
+  padding: 20px;
+  color: white;
+  border: 1px solid #999;
+  width: 300px;
+}
+
+#closeModal {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
 }
